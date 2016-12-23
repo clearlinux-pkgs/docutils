@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.12
-Release  : 20
+Release  : 21
 URL      : https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz
 Source0  : https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
