@@ -1,5 +1,5 @@
 PKG_NAME := docutils
-URL := https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz
+URL := http://pypi.debian.net/docutils/docutils-0.13.1.tar.gz
 
 
 include ../common/Makefile.common
