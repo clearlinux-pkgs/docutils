@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.13.1
-Release  : 23
+Release  : 24
 URL      : http://pypi.debian.net/docutils/docutils-0.13.1.tar.gz
 Source0  : http://pypi.debian.net/docutils/docutils-0.13.1.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
