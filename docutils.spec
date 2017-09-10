@@ -4,13 +4,14 @@
 #
 Name     : docutils
 Version  : 0.14
-Release  : 25
+Release  : 26
 URL      : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Source0  : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GPL-2.0 Public-Domain Python-2.0
 Requires: docutils-bin
+Requires: docutils-legacypython
 Requires: docutils-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -31,9 +32,18 @@ Group: Binaries
 bin components for the docutils package.
 
 
+%package legacypython
+Summary: legacypython components for the docutils package.
+Group: Default
+
+%description legacypython
+legacypython components for the docutils package.
+
+
 %package python
 Summary: python components for the docutils package.
 Group: Default
+Requires: docutils-legacypython
 
 %description python
 python components for the docutils package.
@@ -47,7 +57,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1501759487
+export SOURCE_DATE_EPOCH=1505002082
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -57,7 +67,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd test ; ./alltests.py ; popd
 %install
-export SOURCE_DATE_EPOCH=1501759487
+export SOURCE_DATE_EPOCH=1505002082
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -83,7 +93,10 @@ echo ----[ mark ]----
 /usr/bin/rst2xml.py
 /usr/bin/rstpep2html.py
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
