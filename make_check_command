@@ -1,2 +1,2 @@
-pushd test ; ./alltests.py ; popd
+pushd test ; python2 ./alltests.py ; popd
  
