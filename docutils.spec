@@ -4,27 +4,25 @@
 #
 Name     : docutils
 Version  : 0.14
-Release  : 46
+Release  : 47
 URL      : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Source0  : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GPL-2.0 Public-Domain Python-2.0
-Requires: docutils-bin
-Requires: docutils-python3
-Requires: docutils-python
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
+Requires: docutils-bin = %{version}-%{release}
+Requires: docutils-python = %{version}-%{release}
+Requires: docutils-python3 = %{version}-%{release}
+BuildRequires : buildreq-distutils23
+BuildRequires : buildreq-distutils3
 
 %description
-into useful formats, such as HTML, XML, and LaTeX.  For
-        input Docutils supports reStructuredText, an easy-to-read,
-        what-you-see-is-what-you-get plaintext markup syntax.
+=======================
+=======================
+:Author: David Goodger
+:Contact: goodger@python.org
+:Date: $Date: 2017-08-03 11:03:32 +0200 (Do, 03 Aug 2017) $
+:Web site: http://docutils.sourceforge.net/
 
 %package bin
 Summary: bin components for the docutils package.
@@ -46,7 +44,7 @@ legacypython components for the docutils package.
 %package python
 Summary: python components for the docutils package.
 Group: Default
-Requires: docutils-python3
+Requires: docutils-python3 = %{version}-%{release}
 
 %description python
 python components for the docutils package.
@@ -69,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530371844
+export SOURCE_DATE_EPOCH=1549642247
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -79,13 +77,16 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd test ; python2 ./alltests.py ; popd
 %install
-export SOURCE_DATE_EPOCH=1530371844
+export SOURCE_DATE_EPOCH=1549642247
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## install_append content
+cp %{buildroot}/usr/bin/rst2man.py %{buildroot}/usr/bin/rst2man
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -96,6 +97,7 @@ echo ----[ mark ]----
 /usr/bin/rst2html4.py
 /usr/bin/rst2html5.py
 /usr/bin/rst2latex.py
+/usr/bin/rst2man
 /usr/bin/rst2man.py
 /usr/bin/rst2odt.py
 /usr/bin/rst2odt_prepstyles.py

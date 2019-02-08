@@ -1,0 +1,1 @@
+cp %{buildroot}/usr/bin/rst2man.py %{buildroot}/usr/bin/rst2man
