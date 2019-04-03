@@ -4,6 +4,8 @@ Sphinx
 alsa-utils
 automake
 catkin_pkg
+cifs-utils
+deprecated-Sphinx
 igt-gpu-tools
 jarn.viewdoc
 liblogging

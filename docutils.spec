@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.14
-Release  : 48
+Release  : 49
 URL      : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Source0  : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
@@ -13,8 +13,8 @@ License  : BSD-2-Clause BSD-3-Clause GPL-2.0 Public-Domain Python-2.0
 Requires: docutils-bin = %{version}-%{release}
 Requires: docutils-python = %{version}-%{release}
 Requires: docutils-python3 = %{version}-%{release}
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
+BuildRequires : python-core
 
 %description
 =======================
@@ -30,15 +30,6 @@ Group: Binaries
 
 %description bin
 bin components for the docutils package.
-
-
-%package legacypython
-Summary: legacypython components for the docutils package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the docutils package.
 
 
 %package python
@@ -67,9 +58,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549642247
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554310918
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
@@ -77,10 +68,9 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd test ; python2 ./alltests.py ; popd
 %install
-export SOURCE_DATE_EPOCH=1549642247
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -106,10 +96,6 @@ cp %{buildroot}/usr/bin/rst2man.py %{buildroot}/usr/bin/rst2man
 /usr/bin/rst2xetex.py
 /usr/bin/rst2xml.py
 /usr/bin/rstpep2html.py
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
