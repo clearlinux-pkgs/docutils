@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.14
-Release  : 49
+Release  : 50
 URL      : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Source0  : http://pypi.debian.net/docutils/docutils-0.14.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
