@@ -1,2 +1,0 @@
-pushd test ; python2 ./alltests.py ; popd
- 
