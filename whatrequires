@@ -5,9 +5,11 @@ alsa-utils
 arandr
 automake
 awscli
+blockdiag
 botocore
 catkin_pkg
 cifs-utils
+hugo
 igt-gpu-tools
 iwd
 jarn.viewdoc
@@ -20,7 +22,9 @@ pyroma
 python-swiftclient
 rdma-core
 recommonmark
+reno
 rsyslog
 sphinx-feature-classification
 sshfs
 swupd-client
+swupd-client-pre-release
