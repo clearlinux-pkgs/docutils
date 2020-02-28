@@ -7,9 +7,12 @@ automake
 awscli
 blockdiag
 botocore
+breathe
 catkin_pkg
 cifs-utils
+doc8
 hugo
+humanfriendly
 igt-gpu-tools
 iwd
 jarn.viewdoc

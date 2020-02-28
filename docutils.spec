@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.16
-Release  : 56
+Release  : 57
 URL      : https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
@@ -16,12 +16,10 @@ Requires: docutils-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-=======================
-=======================
-:Author: David Goodger
-:Contact: goodger@python.org
-:Date: $Date: 2020-01-12 14:28:32 +0100 (So, 12. Jän 2020) $
-:Web site: http://docutils.sourceforge.net/
+Docutils is a modular system for processing documentation
+into useful formats, such as HTML, XML, and LaTeX.  For
+input Docutils supports reStructuredText, an easy-to-read,
+what-you-see-is-what-you-get plaintext markup syntax.
 
 %package bin
 Summary: bin components for the docutils package.
@@ -44,6 +42,7 @@ python components for the docutils package.
 Summary: python3 components for the docutils package.
 Group: Default
 Requires: python3-core
+Provides: pypi(docutils)
 
 %description python3
 python3 components for the docutils package.
@@ -58,7 +57,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582668321
+export SOURCE_DATE_EPOCH=1582920398
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
