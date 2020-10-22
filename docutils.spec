@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.15.2
-Release  : 60
+Release  : 61
 URL      : https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
@@ -16,10 +16,9 @@ Requires: docutils-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-Docutils is a modular system for processing documentation
 into useful formats, such as HTML, XML, and LaTeX.  For
-input Docutils supports reStructuredText, an easy-to-read,
-what-you-see-is-what-you-get plaintext markup syntax.
+        input Docutils supports reStructuredText, an easy-to-read,
+        what-you-see-is-what-you-get plaintext markup syntax.
 
 %package bin
 Summary: bin components for the docutils package.
@@ -57,12 +56,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583332668
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603391483
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
