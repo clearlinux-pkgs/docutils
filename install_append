@@ -1,1 +1,2 @@
-cp %{buildroot}/usr/bin/rst2man.py %{buildroot}/usr/bin/rst2man
+ln -s rst2man.py %{buildroot}/usr/bin/rst2man
+ln -s rst2html.py %{buildroot}/usr/bin/rst2html

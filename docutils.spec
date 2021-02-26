@@ -4,7 +4,7 @@
 #
 Name     : docutils
 Version  : 0.15.2
-Release  : 65
+Release  : 66
 URL      : https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz
 Summary  : Docutils -- Python Documentation Utilities
@@ -56,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1603391483
+export SOURCE_DATE_EPOCH=1614362837
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -73,7 +73,8 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 ## install_append content
-cp %{buildroot}/usr/bin/rst2man.py %{buildroot}/usr/bin/rst2man
+ln -s rst2man.py %{buildroot}/usr/bin/rst2man
+ln -s rst2html.py %{buildroot}/usr/bin/rst2html
 ## install_append end
 
 %files
@@ -81,6 +82,7 @@ cp %{buildroot}/usr/bin/rst2man.py %{buildroot}/usr/bin/rst2man
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/rst2html
 /usr/bin/rst2html.py
 /usr/bin/rst2html4.py
 /usr/bin/rst2html5.py
