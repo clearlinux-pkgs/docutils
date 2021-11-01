@@ -6,8 +6,10 @@ arandr
 automake
 awscli
 blockdiag
+bluez
 cgit
 cifs-utils
+ctags
 igt-gpu-tools
 iwd
 jarn.viewdoc
@@ -15,6 +17,8 @@ libdrm
 liblogging
 libvirt
 mercurial
+openvpn
+pipewire
 pyroma
 pyudev
 rdma-core
@@ -22,4 +26,6 @@ readme_renderer
 recommonmark
 rsyslog
 sphinx-feature-classification
+sphinx_rtd_theme
 swupd-client
+virt-manager
