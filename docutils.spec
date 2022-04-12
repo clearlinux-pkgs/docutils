@@ -11,10 +11,6 @@ Source0  : https://files.pythonhosted.org/packages/57/b1/b880503681ea1b64df05106
 Summary  : Docutils -- Python Documentation Utilities
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GPL-2.0 Public-Domain Python-2.0
-Requires: docutils-bin = %{version}-%{release}
-Requires: docutils-python = %{version}-%{release}
-Requires: docutils-python3 = %{version}-%{release}
-BuildRequires : buildreq-distutils3
 Requires: pypi-docutils
 
 
